@@ -1,51 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>For You ❤️</title>
-    <style>
-        body {
-            background: linear-gradient(to right, #ff9a9e, #fad0c4);
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding-top: 100px;
-            color: #333;
-        }
-        h1 {
-            font-size: 40px;
-        }
-        p {
-            font-size: 20px;
-            max-width: 600px;
-            margin: auto;
-        }
-        .heart {
-            font-size: 50px;
-            animation: beat 1s infinite;
-        }
-        @keyframes beat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-    </style>
+<meta charset="UTF-8">
+<title>Secret Message ❤️</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    padding-top: 100px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.heart {
+    font-size: 50px;
+    animation: beat 1s infinite;
+}
+
+@keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+</style>
+
 </head>
 <body>
 
+<!-- 🔐 FIRST PAGE -->
+<div id="loginPage">
+    <h1>Enter Secret Code 🔐</h1>
+    <input type="password" id="code" placeholder="Enter code">
+    <br>
+    <button onclick="checkCode()">Open</button>
+    <p id="error" style="color:red;"></p>
+</div>
+
+<!-- ❤️ SECOND PAGE -->
+<div id="mainPage" class="hidden">
     <div class="heart">❤️</div>
-    <h1>Hey Love 💕</h1>
+    <h1>Hey Rose Milk 💕</h1>
+    <p>Sorry for everything which I have done till now.</p>
+    <p>You mean a lot to me.</p>
+    <p>Sorry, please forgive me.</p>
+    <p>I love you forever ❤️</p>
+</div>
 
-    <p>
-        If (you == mine) { <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;happiness++; <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;love = infinite; <br>
-        } <br><br>
+<script>
+function checkCode() {
+    let enteredCode = document.getElementById("code").value;
 
-        You are the best part of my life,  
-        like a perfect algorithm that never fails 💫  
-        <br><br>
-        No bugs, no errors — just pure love ❤️  
-    </p>
+    if (enteredCode === "rosemilk") {
+        document.getElementById("loginPage").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+    } else {
+        document.getElementById("error").innerText = "Wrong code 😢";
+    }
+}
+</script>
 
 </body>
 </html>
